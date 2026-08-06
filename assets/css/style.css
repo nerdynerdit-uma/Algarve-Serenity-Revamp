@@ -267,6 +267,19 @@ p { margin: 0 0 1.1em; }
 }
 .site-footer a:hover { opacity: 0.6; }
 
+/* Mobile-only arrow button that expands the View The Work submenu */
+.dropdown-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: transform 0.2s ease;
+}
+
 /* ------------------------------------------------ Responsive */
 @media (max-width: 900px) {
   .testimonials { grid-template-columns: 1fr; }
@@ -291,6 +304,14 @@ p { margin: 0 0 1.1em; }
   }
   body.nav-open .main-nav { transform: translateX(0); }
   .nav-links { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+  /* Show the arrow button; hide the CSS caret on the link */
+  .dropdown-toggle { display: inline-block; }
+  .has-dropdown > a::after { content: none; }
+
+  /* Let the submenu wrap onto its own full-width line under the label */
+  .has-dropdown { flex-wrap: wrap; }
+
   .dropdown {
     position: static;
     transform: none;
@@ -299,10 +320,18 @@ p { margin: 0 0 1.1em; }
     box-shadow: none;
     border: 0;
     background: transparent;
-    padding: 8px 0 0 14px;
+    padding: 6px 0 0 14px;
+    margin: 0;
     min-width: 0;
+    flex-basis: 100%;
+    width: 100%;
+    display: none;          /* collapsed by default */
   }
-  .has-dropdown:hover .dropdown { transform: none; }
+  /* Neither hover nor tapping the label opens it — only the arrow does */
+  .has-dropdown:hover .dropdown { display: none; }
+  .has-dropdown.open .dropdown { display: block; }
+  .has-dropdown.open .dropdown-toggle { transform: rotate(180deg); }
+  .dropdown li a { padding: 8px 0; white-space: nowrap; }
 
   /* Stack every fluid block into DOM order */
   .fluid {
@@ -315,6 +344,10 @@ p { margin: 0 0 1.1em; }
   .fluid .blk-img { height: auto; }
   .fluid .blk-img img { height: auto; aspect-ratio: 4 / 5; }
   .hero .blk-img img { aspect-ratio: 3 / 4; }
+
+  /* Tighten the gap between CAPTURING SERENITY and the intro paragraph */
+  .fluid { padding: 40px var(--pad) 20px; }
+  .intro-statement { padding-top: 10px; }
 }
 
 /* =========================================================
