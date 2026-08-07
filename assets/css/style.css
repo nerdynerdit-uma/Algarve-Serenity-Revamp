@@ -28,6 +28,42 @@
 
 html { scroll-behavior: smooth; }
 
+/* ------------------------------------------------ WhatsApp button */
+.whatsapp-btn {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 2000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.whatsapp-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--white);
+}
+.whatsapp-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: var(--dark);
+}
+@media (max-width: 767px) {
+  .whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    right: 14px;
+    bottom: 14px;
+  }
+  .whatsapp-btn svg { width: 24px; height: 24px; }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
