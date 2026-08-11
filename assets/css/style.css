@@ -656,6 +656,52 @@ p { margin: 0 0 1.1em; }
   text-align: center;
 }
 
+.nav-cta {
+  display: inline-block;
+  padding: 15px 36px;
+  border: 1px solid currentColor;
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.nav-cta:hover { background: var(--dark); color: var(--white); border-color: var(--dark); }
+.theme-black .nav-cta:hover,
+.cta-final .nav-cta:hover { background: var(--white); color: var(--dark); border-color: var(--white); }
+
+.gallery-cta {
+  background: var(--grey);
+  color: var(--dark);
+  text-align: center;
+  padding: clamp(30px, 5vh, 60px) var(--pad) clamp(50px, 8vh, 90px);
+}
+.gallery-cta p {
+  font-family: var(--font-heading);
+  font-weight: 100;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  line-height: 1.4;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+}
+
+/* Capsule call-to-action button */
+.cta-pill {
+  display: inline-block;
+  padding: 16px 42px;
+  border: 1px solid var(--dark);
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.cta-pill:hover { background: transparent; color: var(--dark); }
+
 .masonry-section { background: var(--grey); }
 .masonry {
   max-width: var(--maxw);
