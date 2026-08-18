@@ -42,7 +42,791 @@
     <link rel="stylesheet" href="https://use.typekit.net/lkf1tuz.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" />
   </noscript>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- BEGIN generated: inlined from assets/css/style.css - run tools/build-inline-css.js after editing that file -->
+  <style>
+/* =========================================================
+   Algarve Serenity — clone stylesheet
+   Design tokens reverse-engineered from the live site:
+     heading  -> ivypresto-display  (substituted: Cormorant Garamond)
+     body     -> ibm-plex-mono       (exact: IBM Plex Mono)
+     ui/title -> aktiv-grotesk        (substituted: IBM Plex Mono)
+     palette  -> monochrome (off-white / near-black / grey)
+   ========================================================= */
+
+:root {
+  --white: hsl(0, 0%, 98.04%);
+  --black: hsl(0, 0%, 0%);
+  --dark:  hsl(0, 0%, 10.98%);
+  --grey:  hsl(0, 0%, 86.27%);
+
+  --font-heading: 'ivypresto-display', 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --maxw: 1500px;
+  --gap: 11px;
+  --pad: clamp(22px, 5vw, 90px);
+  --rh: calc(min(var(--maxw), 100vw - 2 * var(--pad)) * 0.0215);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* ------------------------------------------------ WhatsApp button */
+.whatsapp-btn {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 2000;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.whatsapp-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--white);
+}
+.whatsapp-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: var(--dark);
+}
+@media (max-width: 767px) {
+  .whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    right: 14px;
+    bottom: 14px;
+  }
+  .whatsapp-btn svg { width: 24px; height: 24px; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  color: var(--dark);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, .h4 {
+  font-family: var(--font-heading);
+  font-weight: 100; /* IvyPresto Display Thin — matches the live site */
+  margin: 0 0 0.4em;
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+}
+
+h1 { font-size: clamp(2.6rem, 6vw, 7.2rem); }
+h2 { font-size: clamp(2rem, 4.4vw, 4.236rem); }
+h3 { font-size: clamp(1.7rem, 3vw, 2.618rem); }
+h4, .h4 { font-size: clamp(1.05rem, 1.6vw, 1.6rem); font-weight: 300; line-height: 1.4; }
+
+p { margin: 0 0 1.1em; }
+
+/* ------------------------------------------------ Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px var(--pad);
+  background: var(--black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-logo img { height: 76px; width: auto; }
+
+.main-nav { display: flex; align-items: center; gap: 34px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links > li { position: relative; display: flex; align-items: center; }
+
+.nav-links a {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { opacity: 0.55; }
+
+.has-dropdown > a::after { content: ' ⌄'; opacity: 0.5; }
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 190px;
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.22s ease;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+.has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown li a { display: block; padding: 9px 22px; font-size: 12px; }
+
+/* cart icon + count */
+.nav-cart { display: inline-flex; align-items: center; gap: 7px; }
+.nav-cart svg { display: block; }
+.cart-count { font-size: 12px; letter-spacing: 0.05em; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+}
+.nav-toggle span { width: 26px; height: 1.5px; background: var(--white); display: block; }
+
+/* --------------------------------------- Fluid section grid */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+.section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.section-bg img { width: 100%; height: 100%; object-fit: cover; }
+
+.fluid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns:
+    minmax(var(--pad), 1fr)
+    repeat(24, minmax(0, calc((var(--maxw) - 23 * var(--gap)) / 24)))
+    minmax(var(--pad), 1fr);
+  grid-auto-rows: minmax(var(--rh), auto);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+  padding: 60px 0;
+}
+
+.fluid .blk-img { width: 100%; height: 100%; }
+.fluid .blk-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.fluid .blk-text { align-self: center; display: flex; flex-direction: column; justify-content: center; }
+
+/* Themes */
+.theme-dark      { background: #0c0c0c; color: var(--white); }
+.theme-black     { background: var(--black); color: var(--white); }
+.theme-light     { background: var(--white); color: var(--dark); }
+.theme-inverse   { background: #ffffff; color: var(--dark); }
+.theme-light-bold{ background: var(--grey); color: var(--dark); }
+
+.theme-dark .section-bg::after,
+.theme-black .section-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+.theme-dark .section-bg img,
+.theme-black .section-bg img { filter: brightness(0.7); }
+
+/* eyebrow / small caps helper */
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom: 1.4em;
+  opacity: 0.7;
+}
+
+/* Hero specifics */
+.hero h1 { text-transform: uppercase; letter-spacing: 0.02em; }
+.hero .lede p { font-size: 14px; }
+
+/* Quote section */
+.quote-big h2 {
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
+.quote-big p { text-align: center; text-transform: uppercase; letter-spacing: 0.2em; font-size: 12px; }
+
+/* Testimonials */
+.testimonials {
+  padding: clamp(70px, 12vh, 140px) var(--pad);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(40px, 6vw, 110px);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.testimonial blockquote {
+  margin: 0 0 22px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.testimonial cite {
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* CTA / footer section */
+.cta-final .contact p { text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; margin: 0.2em 0; }
+.cta-final h2 { text-transform: uppercase; letter-spacing: 0.02em; }
+
+/* Gallery grid (section 2) */
+.gallery-section { background: #fff; padding: clamp(40px, 6vw, 90px) var(--pad); }
+.gallery-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+.gallery-grid figure { margin: 0; overflow: hidden; }
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery-grid figure:hover img { transform: scale(1.04); }
+
+/* Category selector grid (View The Work hub page) */
+.category-section { background: #fff; padding: clamp(20px, 4vw, 40px) var(--pad) clamp(50px, 7vw, 90px); }
+.category-grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+.category-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  color: var(--white);
+}
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.category-card:hover img { transform: scale(1.06); }
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0) 100%);
+}
+.category-card span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-weight: 100;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+}
+@media (max-width: 900px) {
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .category-grid { grid-template-columns: 1fr; }
+  .category-card { aspect-ratio: 4 / 3; }
+}
+
+/* Site footer */
+.site-footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 40px var(--pad);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.site-footer a:hover { opacity: 0.6; }
+
+/* Mobile-only arrow button that expands the View The Work submenu */
+.dropdown-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: transform 0.2s ease;
+}
+
+/* ------------------------------------------------ Responsive */
+@media (max-width: 900px) {
+  .testimonials { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 767px) {
+  .nav-toggle { display: flex; }
+  .main-nav {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(88vw, 380px);
+    background: var(--black);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 90px 28px 40px;
+    gap: 22px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+  }
+  body.nav-open .main-nav { transform: translateX(0); }
+  .nav-links { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+  /* Submenu is always visible on mobile (no collapse); hide the arrow button */
+  .dropdown-toggle { display: none; }
+  .has-dropdown { flex-wrap: wrap; }
+  .has-dropdown > a::after { content: none; }
+
+  .dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+    margin: 0;
+    padding: 4px 0 0 12px;
+    min-width: 0;
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .has-dropdown:hover .dropdown { display: block; }
+  /* Smaller, tighter submenu items so "Intimate Weddings" fits fully */
+  .dropdown li a {
+    padding: 7px 0;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  /* Stack every fluid block into DOM order */
+  .fluid {
+    display: flex;
+    flex-direction: column;
+    padding: 46px var(--pad);
+    gap: 26px;
+  }
+  .fluid > * { grid-area: auto !important; width: 100% !important; }
+  .fluid .blk-img { height: auto; }
+  .fluid .blk-img img { height: auto; aspect-ratio: 4 / 5; }
+  .hero .blk-img img { aspect-ratio: 3 / 4; }
+
+  /* Tighten the hero block padding on mobile */
+  .fluid { padding: 40px var(--pad) 20px; }
+}
+
+/* =========================================================
+   See What We Offer — page components
+   ========================================================= */
+
+/* Big italic serif display heading (CAPTURING SERENITY) */
+.display-title { text-transform: uppercase; letter-spacing: 0.03em; }
+.display-title em { font-style: italic; }
+
+/* Centered intro statement */
+.intro-statement {
+  padding: clamp(50px, 8vh, 110px) var(--pad);
+  text-align: center;
+}
+.intro-statement p {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: var(--font-heading);
+  font-weight: 100;
+  font-size: clamp(1.4rem, 2.4vw, 2.3rem);
+  line-height: 1.4;
+}
+/* Mobile: close the gap under CAPTURING SERENITY (must come after the base
+   .intro-statement rule above to win the cascade) */
+@media (max-width: 767px) {
+  .intro-statement { padding-top: 8px; padding-bottom: 34px; }
+}
+
+/* Card rows (pricing + services) */
+.card-row {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(30px, 5vw, 60px) var(--pad) clamp(50px, 7vw, 90px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 1.6vw, 24px);
+  align-items: stretch;
+}
+
+/* Pricing card (white) */
+.price-card {
+  background: #fff;
+  color: var(--dark);
+  padding: 40px 26px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.card-photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 26px;
+}
+.price-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+.card-list { list-style: none; margin: 0 0 28px; padding: 0; }
+.card-list li {
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.round-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: background 0.25s, color 0.25s;
+}
+.price-card .round-btn:hover { background: var(--dark); color: #fff; }
+
+/* Services (dark) */
+.services-row { background: #0c0c0c; color: var(--white); }
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.service-card h3 { font-size: 1.5rem; margin: 22px 0 16px; }
+.service-card p { font-size: 12px; line-height: 1.6; margin-bottom: 26px; }
+.service-card .round-btn:hover { background: #fff; color: var(--dark); }
+
+@media (max-width: 900px) {
+  .card-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .card-row { grid-template-columns: 1fr; }
+}
+
+/* Rich text service page (Real Estate, etc.) */
+.rich-text {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(60px, 10vh, 130px) var(--pad);
+  font-family: var(--font-heading);
+  color: var(--dark);
+}
+.rich-text .lead {
+  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  font-weight: 100;
+  line-height: 1.3;
+  margin-bottom: 1em;
+}
+.rich-text h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 600;
+  margin: 0.8em 0 0.5em;
+}
+.rich-text ul {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+}
+.rich-text ul li {
+  position: relative;
+  padding-left: 1.2em;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.5;
+  margin-bottom: 0.35em;
+}
+.rich-text ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+}
+.rich-text > p {
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+.rich-text strong { font-weight: 600; }
+
+/* Grey gallery variant */
+.gallery-section--grey { background: var(--grey); }
+
+/* 2-across gallery grid */
+.gallery-grid--2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 560px) { .gallery-grid--2 { grid-template-columns: 1fr; } }
+
+/* Natural aspect ratio (no cropping) — show full images */
+.gallery-grid--natural { align-items: start; }
+.gallery-grid--natural img { aspect-ratio: auto; height: auto; object-fit: contain; }
+
+/* 4-across gallery row */
+.gallery-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .gallery-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .gallery-grid--4 { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   Check Availability — hero + contact form
+   ========================================================= */
+.avail-hero { padding: clamp(24px, 4vw, 60px) 0 0; }
+.avail-hero .display-title {
+  text-align: center;
+  font-size: clamp(2.6rem, 8vw, 8rem);
+  line-height: 1.0;
+  margin: 0 var(--pad) clamp(28px, 4vw, 54px);
+}
+.avail-hero-img { padding: 0 var(--pad) clamp(20px, 3vw, 40px); }
+.avail-hero-img img { width: 100%; height: clamp(320px, 42vw, 620px); object-fit: cover; }
+
+.contact-book { padding: clamp(50px, 8vh, 110px) var(--pad); }
+.contact-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+.contact-left h2 { font-size: clamp(2rem, 3.4vw, 3rem); }
+
+.contact-form { display: flex; flex-direction: column; gap: 30px; }
+.field > label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+.field .req { opacity: 0.45; }
+.field .sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 9px 0;
+  outline: none;
+  border-radius: 0;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus { border-bottom-color: #fff; }
+.field textarea { min-height: 92px; resize: vertical; }
+.field select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+.field select option { color: #000; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+.submit-btn {
+  align-self: flex-start;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.submit-btn:hover { background: #fff; color: #000; }
+.form-thanks { font-family: var(--font-body); font-size: 14px; margin-top: 8px; display: none; }
+
+@media (max-width: 760px) {
+  .contact-wrap { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   Gallery pages — centered statement + masonry grid
+   ========================================================= */
+.quote-statement {
+  background: var(--grey);
+  color: var(--dark);
+  padding: clamp(48px, 8vh, 110px) var(--pad) clamp(30px, 4vw, 60px);
+  text-align: center;
+}
+.quote-statement h2 {
+  font-weight: 100;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Editorial serif quote inside a fluid grid (Couples page) */
+.editorial-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.7vw, 2.8rem);
+  font-weight: 100;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.nav-cta {
+  display: inline-block;
+  padding: 15px 36px;
+  border: 1px solid currentColor;
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.nav-cta:hover { background: var(--dark); color: var(--white); border-color: var(--dark); }
+.theme-black .nav-cta:hover,
+.cta-final .nav-cta:hover { background: var(--white); color: var(--dark); border-color: var(--white); }
+
+.gallery-cta {
+  background: var(--grey);
+  color: var(--dark);
+  text-align: center;
+  padding: clamp(30px, 5vh, 60px) var(--pad) clamp(50px, 8vh, 90px);
+}
+.gallery-cta p {
+  font-family: var(--font-heading);
+  font-weight: 100;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  line-height: 1.4;
+  margin: 0 0 clamp(24px, 3vw, 40px);
+}
+
+/* Capsule call-to-action button */
+.cta-pill {
+  display: inline-block;
+  padding: 16px 42px;
+  border: 1px solid var(--dark);
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: background 0.25s, color 0.25s;
+}
+.cta-pill:hover { background: transparent; color: var(--dark); }
+
+.masonry-section { background: var(--grey); }
+.masonry {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 40px) var(--pad) clamp(50px, 7vw, 90px);
+  column-count: 4;
+  column-gap: 11px;
+}
+.masonry img {
+  width: 100%;
+  margin-bottom: 11px;
+  display: block;
+  break-inside: avoid;
+}
+@media (max-width: 1100px) { .masonry { column-count: 3; } }
+@media (max-width: 700px)  { .masonry { column-count: 2; } }
+@media (max-width: 420px)  { .masonry { column-count: 1; } }
+
+/* Two-column interleaved masonry (Intimate Weddings) */
+.wed-masonry {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(20px, 3vw, 40px) var(--pad) clamp(50px, 7vw, 90px);
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.wed-col { flex: 1; display: flex; flex-direction: column; gap: 11px; min-width: 0; }
+.wed-col img { width: 100%; display: block; }
+@media (max-width: 500px) {
+  .wed-masonry { flex-direction: column; }
+}
+  </style>
+  <!-- END generated -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -268,8 +1052,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2>What the Client Gets</h2>
         </div>
         <div class="blk-text" style="grid-area: 11 / 15 / 24 / 26;">
-          <h4>You deserve photos that actually look like you, so not stiff, not filtered beyond recognition, not forgettable. Since 2019, Cherlita has been photographing couples, families, and solo adventurers across the Algarve with one goal: to give you images you'll be proud to show anyone.</h4>
-          <h4>As a foreign local based in the central Algarve, she knows every golden beach, hidden cliff path, and perfect light spot, so you don't have to.</h4>
+          <p class="h4">You deserve photos that actually look like you, so not stiff, not filtered beyond recognition, not forgettable. Since 2019, Cherlita has been photographing couples, families, and solo adventurers across the Algarve with one goal: to give you images you'll be proud to show anyone.</p>
+          <p class="h4">As a foreign local based in the central Algarve, she knows every golden beach, hidden cliff path, and perfect light spot, so you don't have to.</p>
         </div>
       </div>
     </section>
