@@ -32,7 +32,16 @@
   <meta name="twitter:description" content="Real estate photography in the Algarve — interior and exterior, HDR, twilight and daytime imaging for agents, developers and architects." />
   <meta name="twitter:image" content="https://algarveserenity.com/assets/images/1375cde9-c767-41c5-a0a3-eee1b6055234.jpg" />
   <link rel="icon" href="assets/images/favicon.ico" />
-  <link rel="stylesheet" href="https://use.typekit.net/lkf1tuz.css" />
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preload" as="style" href="https://use.typekit.net/lkf1tuz.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://use.typekit.net/lkf1tuz.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" />
+  </noscript>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -44,7 +53,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- ============================= HEADER ============================= -->
   <header class="site-header">
     <a class="site-logo" href="index.html" aria-label="Algarve Serenity — home">
-      <img src="assets/images/Pink_and_White_Minimalist_Professional_Initial_Logo__12_.png" alt="Algarve Serenity" />
+      <img src="assets/images/Pink_and_White_Minimalist_Professional_Initial_Logo__12_.png" alt="Algarve Serenity"  width="1500" height="869" />
     </a>
 
     <button class="nav-toggle" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">
@@ -91,12 +100,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ===================== SECTION 2 — GALLERY ===================== -->
     <section class="gallery-section gallery-section--grey">
       <div class="gallery-grid">
-        <figure><img src="assets/images/c9f41280-4289-413c-90a0-a8a8e48e087c.jpg" alt="Waterfront apartment towers" /></figure>
-        <figure><img src="assets/images/e8560e64-cf76-4002-ab4a-8440161bd6cf.jpg" alt="Glass building atrium" /></figure>
-        <figure><img src="assets/images/91e26040-4f23-43d4-aa06-87e1dc79c615.jpg" alt="Historic arcade interior" /></figure>
-        <figure><img src="assets/images/b9babb9f-df60-4002-9175-3577d4cdc4ce.jpg" alt="White curved staircase" /></figure>
-        <figure><img src="assets/images/33f0b7f0-7301-4aee-badc-1297fd449a9d.jpg" alt="Room with arched tiled windows" /></figure>
-        <figure><img src="assets/images/88b65675-bd41-4f67-b99e-23b523367071.jpg" alt="Modern white lobby with staircase" /></figure>
+        <figure><img src="assets/images/c9f41280-4289-413c-90a0-a8a8e48e087c.jpg" alt="Waterfront apartment towers"  fetchpriority="high"  width="1280" height="852" /></figure>
+        <figure><img src="assets/images/e8560e64-cf76-4002-ab4a-8440161bd6cf.jpg" alt="Glass building atrium"  loading="lazy" fetchpriority="low" decoding="async"  width="1280" height="852" /></figure>
+        <figure><img src="assets/images/91e26040-4f23-43d4-aa06-87e1dc79c615.jpg" alt="Historic arcade interior"  loading="lazy" fetchpriority="low" decoding="async"  width="852" height="1280" /></figure>
+        <figure><img src="assets/images/b9babb9f-df60-4002-9175-3577d4cdc4ce.jpg" alt="White curved staircase"  loading="lazy" fetchpriority="low" decoding="async"  width="1500" height="1000" /></figure>
+        <figure><img src="assets/images/33f0b7f0-7301-4aee-badc-1297fd449a9d.jpg" alt="Room with arched tiled windows"  loading="lazy" fetchpriority="low" decoding="async"  width="1500" height="1000" /></figure>
+        <figure><img src="assets/images/88b65675-bd41-4f67-b99e-23b523367071.jpg" alt="Modern white lobby with staircase"  loading="lazy" fetchpriority="low" decoding="async"  width="1500" height="1000" /></figure>
       </div>
     </section>
 
