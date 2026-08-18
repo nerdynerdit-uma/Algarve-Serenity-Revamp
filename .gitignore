@@ -5,8 +5,3 @@ _raw/
 .DS_Store
 Thumbs.db
 *.log
-
-# Node deps (temp tooling only, not part of the site)
-node_modules/
-package.json
-package-lock.json
